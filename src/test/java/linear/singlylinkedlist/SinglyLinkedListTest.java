@@ -1,6 +1,7 @@
-package linearlist;
+package linear.singlylinkedlist;
 
 
+import linear.ListInterface;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-public class MyLinkedListTest {
+public class SinglyLinkedListTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -32,7 +33,7 @@ public class MyLinkedListTest {
     @Test
     public void should_add_to_the_tail_when_execute_add_action_in_order() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         for (int i = 0; i < 10; i++) {
             intList.add(i);
@@ -46,7 +47,7 @@ public class MyLinkedListTest {
     @Test
     public void should_display_list_is_empty_when_call_display_method_any_add_action_before() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         intList.display();
         // Then
@@ -57,7 +58,7 @@ public class MyLinkedListTest {
     @Test
     public void should_add_021_when_call_add_to_method() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         for (int i = 0; i < 2; i++) {
             intList.add(i);
@@ -72,7 +73,7 @@ public class MyLinkedListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_indexOutOfBoundsException_when_add_to_a_position_bigger_than_length() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         for (int i = 0; i < 2; i++) {
             intList.add(i);
@@ -84,7 +85,7 @@ public class MyLinkedListTest {
     @Test
     public void should_remove_the_second_elem_when_call_remove_method_with_param_1() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -97,7 +98,7 @@ public class MyLinkedListTest {
     @Test
     public void should_remove_the_first_elem_when_call_remove_method_with_param_0() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -111,7 +112,7 @@ public class MyLinkedListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_out_of_bounds_exception_when_remove_non_exist_elem_position() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -123,7 +124,7 @@ public class MyLinkedListTest {
     @Test
     public void should_replace_the_second_elem_when_call_replace_method_with_param_1() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -137,7 +138,7 @@ public class MyLinkedListTest {
     @Test
     public void should_replace_the_first_elem_when_call_replace_method_with_param_0() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -151,7 +152,7 @@ public class MyLinkedListTest {
     @Test
     public void should_return_the_first_elem_data_when_call_get_method() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -164,7 +165,7 @@ public class MyLinkedListTest {
     @Test
     public void should_return_true_if_list_contains_the_input_elem_otherwise_return_false() {
         // Given
-        ListInterface<Integer> intList = new MyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 10; i++) {
             intList.add(i);
         }

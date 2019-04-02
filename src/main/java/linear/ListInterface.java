@@ -1,4 +1,4 @@
-package linearlist;
+package linear;
 
 public interface ListInterface<E> {
     boolean add(E object);

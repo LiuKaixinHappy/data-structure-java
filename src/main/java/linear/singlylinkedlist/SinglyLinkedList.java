@@ -1,6 +1,8 @@
-package linearlist;
+package linear.singlylinkedlist;
 
-public class MyLinkedList<E> implements ListInterface<E> {
+import linear.ListInterface;
+
+public class SinglyLinkedList<E> implements ListInterface<E> {
 
     private int length;
     private Node head = null;
