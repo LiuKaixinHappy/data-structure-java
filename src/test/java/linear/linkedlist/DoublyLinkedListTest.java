@@ -1,7 +1,5 @@
 package linear.linkedlist;
 
-import linear.ListInterface;
-import linear.linkedlist.DoublyLinkedList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,8 +1,6 @@
 package linear.linkedlist;
 
 
-import linear.ListInterface;
-import linear.linkedlist.SinglyLinkedList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

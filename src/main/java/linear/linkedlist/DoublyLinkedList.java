@@ -1,7 +1,5 @@
 package linear.linkedlist;
 
-import linear.ListInterface;
-
 public class DoublyLinkedList<E> implements ListInterface<E> {
 
     private Node head;

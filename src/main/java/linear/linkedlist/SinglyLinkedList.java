@@ -1,12 +1,11 @@
 package linear.linkedlist;
 
-import linear.ListInterface;
+import java.util.Stack;
 
 public class SinglyLinkedList<E> implements ListInterface<E> {
 
     private int length;
     private Node head = null;
-
     private class Node {
         private E data;
         private Node next;
