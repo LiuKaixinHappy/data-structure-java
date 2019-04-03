@@ -1,4 +1,4 @@
-package linear.singlylinkedlist;
+package linear.linkedlist;
 
 import linear.ListInterface;
 

@@ -1,6 +1,8 @@
-package linear.doublylinkedlist;
+package linear.linkedlist;
+
 
 import linear.ListInterface;
+import linear.linkedlist.SinglyLinkedList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +12,8 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.*;
 
-public class DoublyLinkedListTest {
+public class SinglyLinkedListTest {
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -31,34 +34,21 @@ public class DoublyLinkedListTest {
     @Test
     public void should_add_to_the_tail_when_execute_add_action_in_order() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             intList.add(i);
         }
         // Then
         intList.display();
-        StringBuilder expected = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            expected
-                    .append("prev:")
-                    .append(i == 0 ?
-                            "null" : i - 1)
-                    .append("\tcurr:")
-                    .append(i)
-                    .append("\tnext:")
-                    .append(i == 2 ?
-                            "null" : i + 1)
-                    .append("\n");
-        }
-        assertEquals(expected.toString(), outContent.toString());
-        assertEquals(3, intList.getLength());
+        assertEquals("0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n", outContent.toString());
+        assertEquals(10, intList.getLength());
     }
 
     @Test
     public void should_display_list_is_empty_when_call_display_method_any_add_action_before() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         intList.display();
         // Then
@@ -69,7 +59,7 @@ public class DoublyLinkedListTest {
     @Test
     public void should_add_021_when_call_add_to_method() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         for (int i = 0; i < 2; i++) {
             intList.add(i);
@@ -77,28 +67,14 @@ public class DoublyLinkedListTest {
         intList.addTo(1, 2);
         // Then
         intList.display();
-        StringBuilder expected = new StringBuilder();
-        int[] result = new int[]{0, 2, 1};
-        for (int i = 0; i < result.length; i++) {
-            expected
-                    .append("prev:")
-                    .append(i == 0 ?
-                            "null" : result[i - 1])
-                    .append("\tcurr:")
-                    .append(result[i])
-                    .append("\tnext:")
-                    .append(i == result.length - 1 ?
-                            "null" : result[i + 1])
-                    .append("\n");
-        }
-        assertEquals(expected.toString(), outContent.toString());
+        assertEquals("0\n2\n1\n", outContent.toString());
         assertEquals(3, intList.getLength());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_indexOutOfBoundsException_when_add_to_a_position_bigger_than_length() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         // When
         for (int i = 0; i < 2; i++) {
             intList.add(i);
@@ -110,7 +86,7 @@ public class DoublyLinkedListTest {
     @Test
     public void should_remove_the_second_elem_when_call_remove_method_with_param_1() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -123,7 +99,7 @@ public class DoublyLinkedListTest {
     @Test
     public void should_remove_the_first_elem_when_call_remove_method_with_param_0() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -137,7 +113,7 @@ public class DoublyLinkedListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void should_throw_out_of_bounds_exception_when_remove_non_exist_elem_position() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 2; i++) {
             intList.add(i);
         }
@@ -149,7 +125,7 @@ public class DoublyLinkedListTest {
     @Test
     public void should_replace_the_second_elem_when_call_replace_method_with_param_1() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -157,27 +133,13 @@ public class DoublyLinkedListTest {
         intList.replace(1, 3);
         intList.display();
         // Then
-        StringBuilder expected = new StringBuilder();
-        int[] result = new int[]{0, 3, 2};
-        for (int i = 0; i < result.length; i++) {
-            expected
-                    .append("prev:")
-                    .append(i == 0 ?
-                            "null" : result[i - 1])
-                    .append("\tcurr:")
-                    .append(result[i])
-                    .append("\tnext:")
-                    .append(i == result.length - 1 ?
-                            "null" : result[i + 1])
-                    .append("\n");
-        }
-        assertEquals(expected.toString(), outContent.toString());
+        assertEquals("0\n3\n2\n", outContent.toString());
     }
 
     @Test
     public void should_replace_the_first_elem_when_call_replace_method_with_param_0() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -185,27 +147,13 @@ public class DoublyLinkedListTest {
         intList.replace(0, 3);
         intList.display();
         // Then
-        StringBuilder expected = new StringBuilder();
-        int[] result = new int[]{3, 1, 2};
-        for (int i = 0; i < result.length; i++) {
-            expected
-                    .append("prev:")
-                    .append(i == 0 ?
-                            "null" : result[i - 1])
-                    .append("\tcurr:")
-                    .append(result[i])
-                    .append("\tnext:")
-                    .append(i == result.length - 1 ?
-                            "null" : result[i + 1])
-                    .append("\n");
-        }
-        assertEquals(expected.toString(), outContent.toString());
+        assertEquals("3\n1\n2\n", outContent.toString());
     }
 
     @Test
     public void should_return_the_first_elem_data_when_call_get_method() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 3; i++) {
             intList.add(i);
         }
@@ -218,7 +166,7 @@ public class DoublyLinkedListTest {
     @Test
     public void should_return_true_if_list_contains_the_input_elem_otherwise_return_false() {
         // Given
-        ListInterface<Integer> intList = new DoublyLinkedList<>();
+        ListInterface<Integer> intList = new SinglyLinkedList<>();
         for (int i = 0; i < 10; i++) {
             intList.add(i);
         }
