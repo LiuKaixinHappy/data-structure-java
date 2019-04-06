@@ -4,7 +4,7 @@ package sort;
 public class BubbleSort {
 
 
-    public static int[] sort(int[] inputs) {
+    public static void sort(int[] inputs) {
         int swap = 0;
         for (int j = 0; j < inputs.length; j++) {
             boolean beSwapped = false;
@@ -22,6 +22,5 @@ public class BubbleSort {
             }
         }
         System.out.printf("swap %d times in total\n", swap);
-        return inputs;
     }
 }
